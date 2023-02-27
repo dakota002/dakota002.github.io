@@ -1,8 +1,5 @@
 name: Node.js CI
 
-concurrency:
-  group: production
-
 on:
   push:
     branches:
@@ -25,6 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy
-        run: |
-          npm install
-          npm run deploy
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - run: npm install
+      - run: npm run deploy
