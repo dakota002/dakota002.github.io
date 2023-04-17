@@ -1,5 +1,13 @@
+:root {
+  --main-bg-color: #282c34;
+  --primary: #282c34;
+  --primary-ligher:#444a5575;
+  --light-border:rgba(255, 255, 255, 0.2);
+}
+
 .App {
   text-align: center;
+  background-color: var(--main-bg-color);
 }
 
 .App-logo {
@@ -11,17 +19,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -36,3 +33,76 @@
     transform: rotate(360deg);
   }
 }
+
+.main-content {
+  height: 100vh;
+}
+
+.songOption {
+  color: white;
+  height: 4em;
+  opacity: .25;
+}
+
+.songOption.selected {
+  opacity: 1;
+}
+
+#SongList {
+  height: 88.2vh;
+  margin-top: 1em;
+  margin-bottom:1em;
+  border:solid var(--light-border);
+  border-width: 0px 2px 0px 2px;
+  border-style: solid;
+  overflow-y: scroll;
+}
+#SongList::-webkit-scrollbar {
+  display: none;
+}
+
+.songlist-text {
+  font-size: 2em;
+}
+
+/* Playback Buttons */
+.playback-buttons {
+  all: unset;
+  cursor: pointer;
+}
+
+.playback-buttons:disabled {
+  color:grey;
+}
+
+.middlebutton {
+  border-width: 0px 2px 0px 2px;
+  border-style: solid;
+  border-color: var(--light-border);
+}
+
+/* Loader */
+.loader {
+  width: 85px;
+  height: 50px;
+  margin:auto;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#FFF 50px, transparent 0),
+                    linear-gradient(#FFF 50px, transparent 0),
+                    linear-gradient(#FFF 50px, transparent 0),
+                    linear-gradient(#FFF 50px, transparent 0),
+                    linear-gradient(#FFF 50px, transparent 0),
+                    linear-gradient(#FFF 50px, transparent 0);
+  background-position: 0px center, 15px center, 30px center, 45px center, 60px center, 75px center, 90px center;
+  animation: pulseBars 0.65s linear infinite alternate;
+}
+@keyframes pulseBars {
+  0% { background-size: 10px 3px;}
+  16% { background-size: 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px, 10px 3px}
+  33% { background-size: 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px}
+  50% { background-size: 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px}
+  66% { background-size: 10px 3px, 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px}
+  83% { background-size: 10px 3px, 10px 3px,  10px 10px, 10px 30px, 10px 50px, 10px 3px}
+  100% { background-size: 10px 3px, 10px 3px, 10px 3px,  10px 10px, 10px 30px, 10px 50px}
+}
+  
